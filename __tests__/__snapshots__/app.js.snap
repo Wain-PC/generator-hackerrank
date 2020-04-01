@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generator-hackerrank:app task file content is correct 1`] = `
+"const solve = (n) => {
+  // Put your solution here
+  return n;
+};
+
+module.exports = { solve };
+"
+`;
+
+exports[`generator-hackerrank:app test file content is correct 1`] = `
+"const solve = (n) => {
+  // Put your solution here
+  return n;
+};
+
+module.exports = { solve };
+"
+`;
