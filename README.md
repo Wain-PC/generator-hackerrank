@@ -16,12 +16,43 @@ Then generate your new project:
 yo hackerrank
 ```
 
-## Getting To Know Yeoman
+This will ask for the task scope and name, along with some other options, and produce the following result:
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+_Main file_
+```javascript
+// {scope}/{task}.js
+
+const solve = (n) => {
+  // Put your solution here
+  return n;
+};
+
+module.exports = { solve };
+
+```
+
+_Unit tests_
+```javascript
+// {scope}/{task}.test.js
+
+const { solve } = require('./task');
+
+describe('Sample Task', () => {
+  const examples = [
+    {
+      query: [1, 2, 3],
+      answer: 5,
+    }
+  ];
+
+  examples.forEach(({ query, answer }, i) => {
+    it(`should solve example ${i}`, () => {
+      expect(solve(query)).toEqual(answer);
+    });
+  });
+});
+
+```
 
 ## License
 

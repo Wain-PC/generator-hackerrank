@@ -1,7 +1,7 @@
 {
   "name": "generator-hackerrank",
-  "version": "0.0.1",
-  "description": "Generate a Javascript template & unit tests for solving another one of those /r/hackerrank challenges",
+  "version": "1.0.0",
+  "description": "Yeoman generator for HackerRank challenges",
   "homepage": "https://github.com/Wain-PC/generator-hackerrank",
   "author": {
     "name": "Wain-PC",

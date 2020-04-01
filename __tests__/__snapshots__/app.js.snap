@@ -11,11 +11,23 @@ module.exports = { solve };
 `;
 
 exports[`generator-hackerrank:app test file content is correct 1`] = `
-"const solve = (n) => {
-  // Put your solution here
-  return n;
-};
+"const { solve } = require('./Sample Task');
 
-module.exports = { solve };
+describe('Sample Task', () => {
+  const examples = [
+
+    {
+      query: [1, 2, 3]
+      answer: 5,
+    },
+
+  ];
+
+  examples.forEach(({ query, answer }, i) => {
+    it(\`should solve example \${i}\`, () => {
+      expect(solve(query)).toEqual(answer);
+    });
+  });
+});
 "
 `;

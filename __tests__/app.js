@@ -15,7 +15,7 @@ describe("generator-hackerrank:app", () => {
   };
 
   const taskFilePath = `${opts.topic}/${opts.task}.js`;
-  const testFilePath = `${opts.topic}/${opts.task}.js`;
+  const testFilePath = `${opts.topic}/${opts.task}.test.js`;
 
   beforeAll(() => {
     return helpers.run(path.join(__dirname, "../generators/app")).withPrompts(opts);
