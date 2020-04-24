@@ -2,6 +2,19 @@
 const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
+const { readdir } = require("fs").promises;
+
+const getDirectories = async () =>
+  (await readdir(process.cwd(), {
+    withFileTypes: true
+  }))
+    .filter(
+      dirent =>
+        dirent.isDirectory() &&
+        !dirent.name.startsWith(".") &&
+        dirent.name !== "node_modules"
+    )
+    .map(dirent => dirent.name);
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -12,17 +25,28 @@ module.exports = class extends Generator {
 
   async prompting() {
     // Have Yeoman greet the user.
-    this.log(
-      yosay(`Welcome to the ${chalk.red("hackerrank")} generator!`)
-    );
+    this.log(yosay(`Welcome to the ${chalk.red("hackerrank")} generator!`));
+
+    const directories = (await getDirectories()).map(name => {
+      return { name, value: name };
+    });
+
+    directories.unshift({ name: "**New directory**", value: "" });
 
     const prompts = [
       {
-        type: "input",
+        type: "list",
         name: "topic",
         message: "Topic name",
+        choices: directories
+      },
+      {
+        type: "input",
+        name: "topic",
+        message: "Enter topic name",
         validate: topic => topic.length > 0,
-        default: this.options.topic
+        default: this.options.topic,
+        when: answers => !answers.topic
       },
       {
         type: "input",
